@@ -24,6 +24,11 @@ const contactCardList = [
         title: "Itch.io",
         link: "https://cowlandgamestudios.itch.io/"
     },
+    {
+        image: "./images/contact/Document.svg",
+        title: "Resume",
+        link: "https://resume.jasonxu.me/"
+    },
     // {
     //     image: "./images/contact/Calendly.svg",
     //     title: "Calendly",
