@@ -6,17 +6,17 @@ const contactCardList = [
     },
     {
         image: "./images/contact/Email.svg",
-        title: "Him@JasonXu.Me",
+        title: "Email",
         link: "https://email.jasonxu.me",
     },
     {
         image: "./images/contact/LinkedIn.svg",
-        title: "LinkedIn/xj1",
+        title: "LinkedIn",
         link: "https://linkedin.jasonxu.me"
     },
     {
         image: "./images/contact/GitHub.svg",
-        title: "GitHub/MOOTBING",
+        title: "GitHub",
         link: "https://github.jasonxu.me"
     },
     {
