@@ -7,17 +7,17 @@ const contactCardList = [
     {
         image: "./images/contact/Email.svg",
         title: "Him@JasonXu.Me",
-        link: "mailto:him@jasonxu.me",
+        link: "https://email.jasonxu.me",
     },
     {
         image: "./images/contact/LinkedIn.svg",
         title: "LinkedIn/xj1",
-        link: "https://www.linkedin.com/in/xj1/"
+        link: "https://linkedin.jasonxu.me"
     },
     {
         image: "./images/contact/GitHub.svg",
         title: "GitHub/MOOTBING",
-        link: "https://github.com/mootbing"
+        link: "https://github.jasonxu.me"
     },
     {
         image: "./images/contact/Document.svg",
@@ -34,11 +34,7 @@ const contactCardList = [
         title: "HS Portfolio",
         link: "https://hs.jasonxu.me/"
     },
-    // {
-    //     image: "./images/contact/Calendly.svg",
-    //     title: "Calendly",
-    //     link: "https://calendly.com/jason-xu-moo"
-    // },
+    // ...existing code...
 ];
 
 export default contactCardList;
