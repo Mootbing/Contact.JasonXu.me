@@ -6,8 +6,16 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import contactCardList from '@/app/data/contactCardList'
 
 
-function ContactBalls ({imgSrc, link, hoverText, ...props}) {
+function ContactBalls ({imgSrc, link, hoverText, ballSize, ...props}) {
   const [isHovered, setIsHovered] = useState(false);
+  const ballStyle = {
+    width: ballSize,
+    height: ballSize,
+    minWidth: 40,
+    minHeight: 40,
+    maxWidth: 120,
+    maxHeight: 120,
+  };
   return (
     <div
       className={styles.contactBallContainer}
@@ -16,9 +24,9 @@ function ContactBalls ({imgSrc, link, hoverText, ...props}) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <a href={link} target="_blank" className={styles.contactBallLink}>
-        <div className={styles.contactBall}>
-          <div className={styles.contactBallBlur}></div>
-          <img src={imgSrc} className={styles.contactBallImage} style={{ filter: isHovered ? "brightness(3)" : "brightness(1)" }} />
+        <div className={styles.contactBall} style={ballStyle}>
+          <div className={styles.contactBallBlur} style={ballStyle}></div>
+          <img src={imgSrc} className={styles.contactBallImage} style={{ ...ballStyle, filter: isHovered ? "brightness(3)" : "brightness(1)" }} />
           <p className={isHovered ? `${styles.contactBallText} ${styles.hovered}` : styles.contactBallText}>{hoverText}</p>
         </div>
       </a>
@@ -28,38 +36,32 @@ function ContactBalls ({imgSrc, link, hoverText, ...props}) {
 
 function CircularCarousel({ width, height, contactCardList, ...props}) {
     const angleStep = (2 * Math.PI) / contactCardList.length;
-    const radius = Math.min(1150, Math.min(globalThis?.window.innerHeight, globalThis?.window.innerWidth)) * 0.75 / 2; // Half of the diameter (850/2)
-    const rotationSpeed = 0.0005; // Adjust the rotation speed as needed
-
-    // console.log(radius)
-  
+    const radius = Math.min(1150, Math.min(globalThis?.window.innerHeight, globalThis?.window.innerWidth)) * 0.75 / 2;
+    const rotationSpeed = 0.0005;
     const [rotationAngle, setRotationAngle] = useState(0);
-  
+
     useEffect(() => {
       const rotateCarousel = () => {
         setRotationAngle((prevAngle) => {
           const newAngle = prevAngle + rotationSpeed;
-  
           if (newAngle >= 2 * Math.PI) {
             return newAngle - 2 * Math.PI;
           }
-  
           return newAngle;
         });
-  
         requestAnimationFrame(rotateCarousel);
       };
-  
       const animationId = requestAnimationFrame(rotateCarousel);
-  
       return () => {
         cancelAnimationFrame(animationId);
       };
     }, [rotationSpeed]);
-  
+
+    // Ball size scales with width, min 40px, max 120px
+    const ballSize = Math.max(40, Math.min(120, width / 5));
     return (
       <div
-      className={styles.contactCardContainer}
+        className={styles.contactCardContainer}
         style={{
           position: "relative",
           width: "100vw",
@@ -70,7 +72,7 @@ function CircularCarousel({ width, height, contactCardList, ...props}) {
         {contactCardList.map((item, index) => {
           const x = radius * Math.cos(rotationAngle + index * angleStep) + width / 2;
           const y = radius * Math.sin(rotationAngle + index * angleStep) + height / 2;
-  
+
           const cardStyle = {
             position: "absolute",
             left: `${x}px`,
@@ -80,7 +82,7 @@ function CircularCarousel({ width, height, contactCardList, ...props}) {
             opacity: 0,
             animation: `${styles.fadeIn} 1s ease-in-out forwards ${index * 0.1 + 0.5}s 1`,
           };
-  
+
           return (
             <ContactBalls
               style={cardStyle}
@@ -88,6 +90,7 @@ function CircularCarousel({ width, height, contactCardList, ...props}) {
               imgSrc={item.image}
               link={item.link}
               hoverText={item.title}
+              ballSize={ballSize}
             />
           );
         })}
@@ -148,9 +151,9 @@ export default function ContactJason ({...props}) {
                 <div className={styles.titleImageSubContainer} style={{
                   marginTop: globalThis.window?.innerHeight > 600 ? 0 : 50
                 }}>
-                    {height > 600 && <img src="./images/jason/jason.svg" className={styles.jasonImage} style={{
+                    <img src="./images/jason/jason.svg" className={styles.jasonImage} style={{
                       width: Math.min(1, height / 1000) * 240
-                    }}/>}
+                    }}/>
                     <h1 className={styles.nameTitle} style={{
                         fontSize: Math.min(75, 75 * width / 600) * Math.min(1, height / 1000),
                         marginTop: height < 600 ? 35 : 0,
@@ -158,11 +161,13 @@ export default function ContactJason ({...props}) {
                     }}>
                         JASON XU
                     </h1>
-                    {globalThis.window?.innerHeight > 1000 && <p className={styles.nameSubtitle} style={{
+                    {width >= 800 && (
+                      <p className={styles.nameSubtitle} style={{
                         fontSize: Math.min(20, 20 * width / 500)
-                    }}>
+                      }}>
                         <span className={styles.highlight}>ENTREPRENEUR, INNOVATOR, CREATIVE</span>
-                    </p>}
+                      </p>
+                    )}
                 </div>
             </div>
 

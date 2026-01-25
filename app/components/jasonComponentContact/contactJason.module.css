@@ -195,8 +195,10 @@
 
 .contactBall {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 7em;
+  height: 7em;
+  max-width: 120px;
+  max-height: 120px;
   border-radius: 50%;
   background: transparent;
   display: flex;
@@ -211,8 +213,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 160px;
-  height: 160px;
+  width: 9em;
+  height: 9em;
+  max-width: 140px;
+  max-height: 140px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.07);
@@ -223,8 +227,10 @@
 
 .contactBallBlur {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 7em;
+  height: 7em;
+  max-width: 120px;
+  max-height: 120px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   filter: blur(8px);
@@ -236,8 +242,10 @@
 }
 
 .contactBallImage {
-  width: 120px;
-  height: 120px;
+  width: 7em;
+  height: 7em;
+  max-width: 120px;
+  max-height: 120px;
 }
 
 
