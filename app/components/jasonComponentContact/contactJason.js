@@ -126,7 +126,7 @@ export default function ContactJason({ ...props }) {
       </div>
       <div className={styles.titleContainer}>
         <div className={styles.titleImageSubContainer} style={{ marginTop: height > constants.SCREEN_HEIGHT_THRESHOLD ? 0 : 50 }}>
-            <Image src="/images/jason/jason.svg" alt="Jason Xu" className={styles.jasonImage} width={Math.min(1, height / 1000) * constants.JASON_IMAGE_SIZE} height={Math.min(1, height / 1000) * constants.JASON_IMAGE_SIZE} style={{ opacity: 1, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards 1.2s`, '--final-opacity': width < 800 ? 0.25 : 1 }} />
+            <Image src="/images/jason/jason.svg" alt="Jason Xu" className={styles.jasonImage} width={Math.min(1, height / 1000) * constants.JASON_IMAGE_SIZE} height={Math.min(1, height / 1000) * constants.JASON_IMAGE_SIZE} style={{ opacity: 0, '--final-opacity': width < 800 ? 0.25 : 1, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards 0.6s` }} />
             <h1 className={styles.nameTitle} style={{
               fontSize: Math.min(constants.TITLE_FONT_SIZE, constants.TITLE_FONT_SIZE * width / 600) * Math.min(1, height / 1000),
               marginTop: height < constants.SCREEN_HEIGHT_THRESHOLD ? constants.TITLE_MARGIN_TOP_SMALL : 0,
