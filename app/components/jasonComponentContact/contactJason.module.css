@@ -1,10 +1,20 @@
-/* Reduce opacity for text and cow drawing on small screens */
+/* On small screens, set opacity to 0.25 only after animation completes */
 @media (max-width: 800px) {
-  .nameTitle,
-  .nameSubtitle,
-  .jasonImage,
-  .backgroundText {
+  .lowOpacity {
     opacity: 0.25 !important;
+    transition: opacity 0.2s;
+  }
+  .backgroundText {
+    opacity: 0.25;
+  }
+  .nameSubtitle {
+    display: block !important;
+  }
+}
+
+@keyframes fadeToLowOpacity {
+  to {
+    opacity: 0.25;
   }
 }
 @keyframes fadeIn {
