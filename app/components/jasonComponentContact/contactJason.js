@@ -119,11 +119,11 @@ export default function ContactJason({ ...props }) {
 
   return (
     <div className={styles.primalContainer} {...props}>
-      <div className={styles.backgroundOrbitalsContainer}>
-          <Image src="/images/contact/smallBackgrondOrbital.svg" alt="Small Orbital" width={minDim * constants.SMALL_ORBITAL_SCALE} height={minDim * constants.SMALL_ORBITAL_SCALE} style={{ '--final-opacity': width < 800 ? 0.25 : 1, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards` }} />
-          <Image src="/images/contact/mediumBackgroundOrbital.svg" alt="Medium Orbital" width={minDim * constants.MEDIUM_ORBITAL_SCALE} height={minDim * constants.MEDIUM_ORBITAL_SCALE} style={{ '--final-opacity': width < 800 ? 0.25 : 1, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards 0.2s` }} />
-          <Image src="/images/contact/largeBackgroundOrbital.svg" alt="Large Orbital" width={minDim * constants.LARGE_ORBITAL_SCALE} height={minDim * constants.LARGE_ORBITAL_SCALE} style={{ '--final-opacity': width < 800 ? 0.25 : 1, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards 0.4s` }} />
-      </div>
+        <div className={styles.backgroundOrbitalsContainer}>
+          <Image src="/images/contact/smallBackgrondOrbital.svg" alt="Small Orbital" width={minDim * constants.SMALL_ORBITAL_SCALE} height={minDim * constants.SMALL_ORBITAL_SCALE} style={{ '--final-opacity': 0.25, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards` }} />
+          <Image src="/images/contact/mediumBackgroundOrbital.svg" alt="Medium Orbital" width={minDim * constants.MEDIUM_ORBITAL_SCALE} height={minDim * constants.MEDIUM_ORBITAL_SCALE} style={{ '--final-opacity': 0.25, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards 0.2s` }} />
+          <Image src="/images/contact/largeBackgroundOrbital.svg" alt="Large Orbital" width={minDim * constants.LARGE_ORBITAL_SCALE} height={minDim * constants.LARGE_ORBITAL_SCALE} style={{ '--final-opacity': 0.25, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards 0.4s` }} />
+        </div>
       <div className={styles.titleContainer}>
         <div className={styles.titleImageSubContainer} style={{ marginTop: height > constants.SCREEN_HEIGHT_THRESHOLD ? 0 : 50 }}>
             <Image src="/images/jason/jason.svg" alt="Jason Xu" className={styles.jasonImage} width={Math.min(1, height / 1000) * constants.JASON_IMAGE_SIZE} height={Math.min(1, height / 1000) * constants.JASON_IMAGE_SIZE} style={{ opacity: 0, '--final-opacity': width < 800 ? 0.25 : 1, animation: `${styles.fadeInToOpacity} 1s ease-in-out forwards 0.6s` }} />
