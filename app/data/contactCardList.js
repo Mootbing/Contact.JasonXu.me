@@ -26,14 +26,14 @@ const contactCardList = [
     },
     {
         image: "./images/contact/17.svg",
-        title: "My Life @ 17",
+        title: "My Story",
         link: "https://17.jasonxu.me"
     },
-    {
-        image: "./images/contact/HighSchool.svg",
-        title: "HS Portfolio",
-        link: "https://hs.jasonxu.me/"
-    },
+    // {
+    //     image: "./images/contact/HighSchool.svg",
+    //     title: "HS Portfolio",
+    //     link: "https://hs.jasonxu.me/"
+    // },
     // ...existing code...
 ];
 
